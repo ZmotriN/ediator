@@ -1,0 +1,27 @@
+{
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": null,
+            "savePathReplacementPairs": null
+        }
+    ],
+    "filewatcher.commands": [
+        // Transpile TypeScript
+        {
+            "match": ".*\\.ts$",
+            "isAsync": false,
+            "cmd": "${workspaceRoot}/node_modules/.bin/babel \"${file}\" --config-file \"${workspaceRoot}/babel.config.js\" --out-file \"${fileDirname}/${fileBasenameNoExt}.js\"",
+            "event": "onFileChange"
+        },
+        // Minify JS
+        {
+            "match": ".*\\.ts$",
+            "isAsync": false,
+            "cmd": "${workspaceRoot}/node_modules/.bin/terser \"${fileDirname}\\${fileBasenameNoExt}.js\" --output \"${fileDirname}\\${fileBasenameNoExt}.min.js\" --compress --mangle & del \"${fileDirname}\\${fileBasenameNoExt}.js\"",
+            "event": "onFileChange"
+        }
+    ]
+}

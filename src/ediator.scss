@@ -1,0 +1,50 @@
+.ediator {
+	--background-color: var(--background-gradient);
+	--border-color: var(--text-shade);
+
+	border: 1px solid var(--border-color);
+	box-sizing: border-box;
+
+	&__content {
+		box-sizing: border-box;
+		min-height: 200px;
+		max-height: 50vh;
+		outline: 0;
+		overflow-y: auto;
+		padding: 10px;
+		background-color: var(--background-color);
+		color: var(--text-color);
+	}
+
+	&__actionbar {
+		background-color: var(--background-color);
+		border-bottom: 1px solid var(--border-color);
+
+        &__button {
+            background-color: var(--highlight-blend);
+            color: var(--text-color);
+            height: 30px;
+            width: 30px;
+            border: none;
+            outline: 0;
+            vertical-align: bottom;
+            text-align: center;
+            cursor: pointer;
+            
+            &:hover {
+                background-color: var(--highlight-midblend);
+            }
+
+            &--selected {
+                background-color: var(--highlight);
+    
+                &:hover {
+                    background-color: var(--highlight);
+                }
+            }
+        }
+
+	}
+
+
+}
